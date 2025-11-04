@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Indian Colleges</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a237e;
+      margin-bottom: 25px;
+    }
+
+    .table-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    .college-table {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 8px;
+      background-color: #1a237e;
+      color: white;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .table-header, .table-row {
+      display: contents;
+    }
+
+    .table-header div {
+      background-color: #283593;
+      font-weight: bold;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .table-row div {
+      background-color: white;
+      color: #333;
+      text-align: center;
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table-row:nth-child(even) div {
+      background-color: #f1f4ff;
+    }
+
+    @media (max-width: 700px) {
+      .college-table {
+        grid-template-columns: 1fr;
+      }
+
+      .table-header {
+        display: none;
+      }
+
+      .table-row div {
+        border: none;
+        text-align: left;
+        padding: 10px 15px;
+      }
+
+      .table-row div::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        color: #1a237e;
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Top Indian Colleges - Fees, Entrance & Placement</h1>
+
+  <div class="table-container">
+    <div class="college-table">
+
+      <!-- Header Row -->
+      <div class="table-header">
+        <div>College Name</div>
+        <div>Fees (Approx / Year)</div>
+        <div>Entrance Exam</div>
+        <div>Placement (Avg. Package)</div>
+      </div>
+
+      <!-- College Rows -->
+      <div class="table-row">
+        <div data-label="College Name">IIT Bombay</div>
+        <div data-label="Fees">₹2.3 Lakh</div>
+        <div data-label="Exam">JEE Advanced</div>
+        <div data-label="Placement">₹23 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">IIT Delhi</div>
+        <div data-label="Fees">₹2.2 Lakh</div>
+        <div data-label="Exam">JEE Advanced</div>
+        <div data-label="Placement">₹22 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">BITS Pilani</div>
+        <div data-label="Fees">₹4.2 Lakh</div>
+        <div data-label="Exam">BITSAT</div>
+        <div data-label="Placement">₹15 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">NIT Trichy</div>
+        <div data-label="Fees">₹1.7 Lakh</div>
+        <div data-label="Exam">JEE Main</div>
+        <div data-label="Placement">₹10 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">VIT Vellore</div>
+        <div data-label="Fees">₹1.95 Lakh</div>
+        <div data-label="Exam">VITEEE</div>
+        <div data-label="Placement">₹8 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">SRM University</div>
+        <div data-label="Fees">₹2.5 Lakh</div>
+        <div data-label="Exam">SRMJEEE</div>
+        <div data-label="Placement">₹7 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">Manipal Institute of Technology</div>
+        <div data-label="Fees">₹3.2 Lakh</div>
+        <div data-label="Exam">MET</div>
+        <div data-label="Placement">₹9 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">Delhi Technological University (DTU)</div>
+        <div data-label="Fees">₹2.0 Lakh</div>
+        <div data-label="Exam">JEE Main</div>
+        <div data-label="Placement">₹12 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">IIIT Hyderabad</div>
+        <div data-label="Fees">₹2.8 Lakh</div>
+        <div data-label="Exam">JEE Main / UGEE</div>
+        <div data-label="Placement">₹18 LPA</div>
+      </div>
+
+      <div class="table-row">
+        <div data-label="College Name">Amity University</div>
+        <div data-label="Fees">₹3.0 Lakh</div>
+        <div data-label="Exam">Amity Entrance Test</div>
+        <div data-label="Placement">₹5 LPA</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

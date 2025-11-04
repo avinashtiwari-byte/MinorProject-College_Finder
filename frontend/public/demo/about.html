@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Google Search Bar</title>
+    <style>
+        /* --- CSS for Professional UI/UX --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            /* Your custom dark blue gradient background */
+            background: #020024;
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .search-container h1 {
+            /* FIX: Changed color to white for visibility against dark background */
+            color: white; 
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+        }
+
+        /* Search Form Styling */
+        .google-search-form {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            background-color: white;
+        }
+
+        .google-search-form:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+        }
+
+        /* Search Input */
+        .search-input {
+            flex-grow: 1;
+            padding: 15px 25px;
+            border: none;
+            font-size: 1.1em;
+            outline: none;
+            color: #333;
+        }
+
+        /* Search Button */
+        .search-button {
+            background-color: #004d99; /* Primary Blue color */
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .search-button:hover {
+            background-color: #003366; /* Darker shade on hover */
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 600px) {
+            .google-search-form {
+                border-radius: 10px;
+            }
+            .search-input {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+            .search-button {
+                padding: 12px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <h1>College Research Search</h1>
+        <form class="google-search-form" action="https://www.google.com/search" method="get" target="_blank">
+            <input type="text" name="q" placeholder="Search for any college, exam, or course on Google..." class="search-input" required>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+</body>
+</html>

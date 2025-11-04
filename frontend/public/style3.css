@@ -1,0 +1,351 @@
+/* ------------------------------------ GLOBAL VARIABLES ------------------------------------ */
+:root {
+  --dark-blue: rgba(2, 0, 36, 1);
+  --mid-blue: rgba(9, 9, 121, 1);
+  --bright-blue: rgba(0, 212, 255, 1);
+  --text-light: #ffffff;
+  --text-dark: #111827;
+  --accent-yellow: #f1bc0d;
+  --transition: 0.3s ease-in-out;
+}
+
+/* ------------------------------------ UNIVERSAL STYLES ------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Trebuchet MS', Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: var(--dark-blue);
+  color: var(--text-light);
+}
+
+/* ------------------------------------ ANIMATED GRADIENT ------------------------------------ */
+.animated-gradient {
+  background: linear-gradient(90deg, var(--dark-blue) 0%, var(--mid-blue) 35%, var(--bright-blue) 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s infinite linear;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 10%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 10%; }
+}
+
+/* ------------------------------------ MAIN CONTAINER ------------------------------------ */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(90deg, var(--dark-blue) 0%, var(--mid-blue) 35%, var(--bright-blue) 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s infinite linear;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ------------------------------------ CONTENT WRAPPER ------------------------------------ */
+.parent {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #230845;
+  color: var(--text-light);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ------------------------------------ NAVIGATION ------------------------------------ */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+nav h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #01e675;
+  position: relative;
+  text-transform: uppercase;
+}
+
+nav h1::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgb(28, 9, 114), rgb(214, 214, 255));
+  border-radius: 4px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+nav ul li a:hover {
+  color: #00bfff;
+  text-decoration: underline;
+}
+
+/* Subscribe button */
+ul li #sub {
+  background: linear-gradient(90deg, #c04848, #480048);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: var(--transition);
+}
+
+ul li #sub:hover {
+  background-position: right center;
+}
+
+/* ------------------------------------ MAIN CONTENT ------------------------------------ */
+.main_content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 30px;
+  gap: 40px;
+}
+
+.left, .right {
+  flex: 1 1 45%;
+  min-width: 280px;
+}
+
+.left h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.left h1 {
+  font-size: 2.3rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.left h1 span {
+  color: var(--accent-yellow);
+}
+
+.left p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.left button {
+  padding: 10px 24px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 8px;
+  background: #033677;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.left button:hover {
+  background: #2a005d;
+  box-shadow: 0 0 10px white;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  filter: saturate(120%);
+}
+
+/* Decorative gradient circle */
+.gradient {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 55%;
+  left: 60%;
+  border-radius: 50%;
+  background-color: rgb(158, 109, 255);
+  z-index: -1;
+  filter: blur(50px);
+}
+
+/* ------------------------------------ FOOTER ------------------------------------ */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px 10%;
+  background: #111;
+  color: #fff;
+}
+
+.footer-col {
+  width: 25%;
+  min-width: 200px;
+  margin-bottom: 30px;
+}
+
+.footer-col h4 {
+  font-size: 1.2rem;
+  color: var(--accent-yellow);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+  color: white;
+  padding-left: 3px;
+}
+
+.links a {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  margin-right: 8px;
+  line-height: 44px;
+  text-align: center;
+  color: white;
+  background-color: rgba(40, 130, 214, 0.8);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.links a:hover {
+  background: white;
+  color: #333;
+}
+
+/* ------------------------------------ RESPONSIVE MEDIA QUERIES ------------------------------------ */
+
+/* Tablets and below */
+@media (max-width: 992px) {
+  .main_content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .right img {
+    max-width: 300px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav h1::before {
+    display: none;
+  }
+}
+
+/* Large phones and small tablets */
+@media (max-width: 768px) {
+  .left h1 {
+    font-size: 1.8rem;
+  }
+
+  .left p {
+    font-size: 0.9rem;
+  }
+
+  .left button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .gradient {
+    display: none;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col {
+    width: 80%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .left h1 {
+    font-size: 1.5rem;
+  }
+
+  .left p {
+    font-size: 0.85rem;
+  }
+
+  .right img {
+    max-width: 240px;
+  }
+
+  .footer-col {
+    width: 100%;
+  }
+}

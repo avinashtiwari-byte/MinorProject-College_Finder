@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Daily Life Connect</title>
+    <style>
+        /* --- CSS for Professional UI/UX and Responsiveness --- */
+
+        :root {
+            --primary-color: #004d99; /* Deep Blue (matching your main site) */
+            --accent-color: #ff7f50; /* Coral/Orange */
+            --text-color: #333;
+            --background-color: #f0f8ff;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #020024;
+background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Container & Header */
+        .contact-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        /* Logo Styling */
+        .logo-img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 500px; /* Increased size slightly for better visibility */
+            height: auto;
+            /* Optional: Add a subtle border or box shadow around the image */
+            border-radius: 8px; 
+        }
+
+        /* Form Layout */
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full-width {
+            grid-column: 1 / -1; /* Spans across both columns */
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(255, 127, 80, 0.5); /* Coral glow */
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            grid-column: 1 / -1;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+        }
+
+        /* --- Responsiveness for Smaller Screens --- */
+        @media (max-width: 768px) {
+            .contact-container {
+                margin: 20px;
+                padding: 20px;
+            }
+            .contact-form {
+                grid-template-columns: 1fr; /* Single column layout */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-container">
+        <div class="header">
+            <img class="logo-img" src="london.jpg">
+            
+            <h1>Get In Touch With Us</h1>
+            <p>We'd love to hear your feedback, queries, or partnership proposals regarding Indian colleges and education.</p>
+        </div>
+        
+        <form class="contact-form" action="#" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="example@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number (Optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Reason for Contact *</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select a reason...</option>
+                    <option value="college_query">Query about a specific college</option>
+                    <option value="data_feedback">Feedback on data/accuracy</option>
+                    <option value="partnership">Partnership/Advertising</option>
+                    <option value="technical_issue">Website Technical Issue</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message" required placeholder="Type your detailed message here..."></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</body>
+</html>

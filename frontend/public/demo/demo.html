@@ -1,0 +1,510 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Finder | Find Your Dream College</title>
+  <style>
+    /* ---------- Global Styles ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #004aad;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* ---------- Form Section ---------- */
+    .form-container {
+      background: #fff;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 1.5rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    select:focus, input:focus {
+      outline: none;
+      border-color: #004aad;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    button {
+      background: #004aad;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #003580;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      text-align: center;
+      background: #004aad;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 768px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .form-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <h1>College Finder</h1>
+    <p>Find your dream college based on your marks, budget, and preferences</p>
+  </header>
+
+  <!-- ---------- FORM SECTION ---------- -->
+  <section class="form-container">
+    <h2>Enter Your Details to Find Colleges</h2>
+
+    <form id="collegeForm">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+
+      <div>
+        <label for="email">Email / Phone</label>
+        <input type="text" id="email" placeholder="Enter your contact info" required />
+      </div>
+
+      <div>
+        <label for="class10">10th Marks (%)</label>
+        <input type="number" id="class10" placeholder="e.g. 85" required />
+      </div>
+
+      <div>
+        <label for="class12">12th Marks (%)</label>
+        <input type="number" id="class12" placeholder="e.g. 90" required />
+      </div>
+
+      <div>
+        <label for="exam">Entrance Exam</label>
+        <input type="text" id="exam" placeholder="e.g. JEE, NEET, CUET" />
+      </div>
+
+      <div>
+        <label for="score">Exam Score / Rank</label>
+        <input type="text" id="score" placeholder="e.g. 1234 or 95%" />
+      </div>
+
+      <div>
+        <label for="course">Preferred Course</label>
+        <select id="course" required>
+          <option value="">Select</option>
+          <option value="engineering">Engineering</option>
+          <option value="medical">Medical</option>
+          <option value="commerce">Commerce</option>
+          <option value="arts">Arts</option>
+          <option value="law">Law</option>
+          <option value="management">Management</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="location">Preferred Location</label>
+        <input type="text" id="location" placeholder="City / State" />
+      </div>
+
+      <div>
+        <label for="budget">Budget Range (₹ per year)</label>
+        <input type="text" id="budget" placeholder="e.g. 50,000 – 2,00,000" />
+      </div>
+
+      <div>
+        <label for="collegeType">College Type</label>
+        <select id="collegeType">
+          <option value="">Select</option>
+          <option value="government">Government</option>
+          <option value="private">Private</option>
+          <option value="any">Any</option>
+        </select>
+      </div>
+
+      <div class="full-width">
+        <label for="distance">Distance Preference</label>
+        <select id="distance">
+          <option value="near">Near Home</option>
+          <option value="any">Any Location</option>
+          <option value="specific">Specific State</option>
+        </select>
+      </div>
+
+      <div class="full-width" style="text-align: center; margin-top: 1rem;">
+        <button type="submit">Find My Colleges</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    © 2025 College Finder | Designed by You
+  </footer>
+
+  <!-- ---------- SIMPLE SCRIPT ---------- -->
+  <script>
+    document.getElementById("collegeForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Thank you! Your details have been submitted.\nPersonalized college results will appear here soon!");
+      // You can replace this alert with actual backend integration or a results page redirect.
+    });
+  </script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive College Finder</title>
+    <!-- Load Tailwind CSS via CDN for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#1e40af',
+                        'secondary-green': '#059669',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Inline CSS for the map container and custom components -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        /* Custom styles for the search form to override Tailwind base if needed */
+        .form-control:focus {
+            --tw-ring-color: #1e40af; /* primary-blue */
+        }
+
+        /* Responsive Iframe Container for Map */
+        #up-map-location {
+            overflow: hidden;
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+
+        #up-map-location iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center p-4 font-sans">
+
+    <!-- Main Container: Search Form -->
+    <div class="w-full max-w-3xl bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 mb-8">
+        <h2 class="text-3xl font-bold text-primary-blue text-center mb-6 pb-4 border-b-2 border-primary-blue/10">
+            College Search Filters
+        </h2>
+        
+        <form id="college-search-form" onsubmit="event.preventDefault(); document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });">
+            
+            <!-- 1. Location -->
+            <div class="mb-6">
+                <label for="location" class="block text-sm font-semibold text-gray-700 mb-2">City / Location</label>
+                <input type="text" id="location" placeholder="e.g., Lucknow, Kanpur, Noida" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue transition duration-150">
+            </div>
+
+            <!-- 2. Course Type -->
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-3">Course Type</label>
+                <div class="flex flex-wrap gap-4">
+                    <label class="flex items-center text-gray-600">
+                        <input type="radio" name="course-type" value="engineering" class="h-4 w-4 text-secondary-green border-gray-300 focus:ring-secondary-green">
+                        <span class="ml-2">Engineering</span>
+                    </label>
+                    <label class="flex items-center text-gray-600">
+                        <input type="radio" name="course-type" value="medical" class="h-4 w-4 text-secondary-green border-gray-300 focus:ring-secondary-green">
+                        <span class="ml-2">Medical</span>
+                    </label>
+                    <label class="flex items-center text-gray-600">
+                        <input type="radio" name="course-type" value="management" class="h-4 w-4 text-secondary-green border-gray-300 focus:ring-secondary-green">
+                        <span class="ml-2">Management</span>
+                    </label>
+                    <label class="flex items-center text-gray-600">
+                        <input type="radio" name="course-type" value="arts-science" class="h-4 w-4 text-secondary-green border-gray-300 focus:ring-secondary-green">
+                        <span class="ml-2">Arts & Science</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 3. Fee Slider -->
+            <div class="mb-8">
+                <label for="fee-max" class="block text-sm font-semibold text-gray-700 mb-2">
+                    Maximum Annual Fee: 
+                    <span id="fee-value" class="font-extrabold text-secondary-green ml-2">50k</span>
+                </label>
+                <input type="range" id="fee-max" min="10" max="500" value="50" step="10" class="range-slider w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-blue" oninput="document.getElementById('fee-value').textContent = this.value + 'k'">
+            </div>
+
+            <!-- 4. Submit and Clear Buttons -->
+            <div class="flex justify-center space-x-4">
+                <button type="submit" class="bg-primary-blue hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-200 transform hover:scale-105">
+                    Search Colleges
+                </button>
+                <button type="reset" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-200">
+                    Clear Filters
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Map Section -->
+    <div class="w-full max-w-3xl bg-gray-50 p-6 md:p-8 rounded-xl mb-12">
+        <h3 class="text-2xl font-bold text-gray-700 text-center mb-6 border-b pb-4 border-gray-300">
+            📍 Colleges in Uttar Pradesh - Map View
+        </h3>
+
+        <div id="up-map-location" class="shadow-xl">
+            <!-- Google Maps Embed for the general region of Uttar Pradesh -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19001382.49206249!2d75.75338604726207!3d26.541315682894563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3998f465c49048a1%3A0x6e2671239c0d381b!2sUttar%20Pradesh!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin" 
+                title="Map of Uttar Pradesh"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <p class="text-center text-xs text-gray-500 mt-4">
+            *This map shows the general location of Uttar Pradesh. Actual college markers will appear here after search.
+        </p>
+    </div>
+
+    <!-- College Card Results Section (The user's requested 6 cards) -->
+    <div id="results-section" class="w-full max-w-5xl px-4">
+        <h3 class="text-3xl font-bold text-gray-800 text-center mb-8 border-b-4 border-secondary-green/50 pb-4">
+            Showing 6 Top Colleges in Uttar Pradesh
+        </h3>
+
+        <!-- Responsive Grid for College Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: Leading University -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border-t-4 border-primary-blue transform hover:-translate-y-1">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl text-primary-blue mr-3">🎓</span>
+                    <h4 class="text-xl font-semibold text-gray-900">Institute of Technology, Lucknow</h4>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Public Engineering College</p>
+                <p class="text-lg font-bold text-secondary-green mb-4">₹ 95k / Year</p>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Rank: #5 in UP Engineering</li>
+                    <li>Accreditation: NAAC 'A' Grade</li>
+                    <li>Courses: B.Tech, M.Tech (CSE, ECE)</li>
+                </ul>
+                <a href="#" class="mt-4 block text-center bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-150 text-sm font-medium">View Details</a>
+            </div>
+
+            <!-- Card 2: Private Medical College -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border-t-4 border-secondary-green transform hover:-translate-y-1">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl text-secondary-green mr-3">⚕️</span>
+                    <h4 class="text-xl font-semibold text-gray-900">Dr. Ram Institute of Medical Sciences</h4>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Private Medical Institution</p>
+                <p class="text-lg font-bold text-secondary-green mb-4">₹ 350k / Year</p>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Rank: Top 10 Private MBBS</li>
+                    <li>Affiliation: State Medical University</li>
+                    <li>Courses: MBBS, MD, Nursing</li>
+                </ul>
+                <a href="#" class="mt-4 block text-center bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-150 text-sm font-medium">View Details</a>
+            </div>
+
+            <!-- Card 3: Management Institute -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border-t-4 border-yellow-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl text-yellow-600 mr-3">💼</span>
+                    <h4 class="text-xl font-semibold text-gray-900">Noida School of Business Studies</h4>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Premier Management College</p>
+                <p class="text-lg font-bold text-secondary-green mb-4">₹ 210k / Year</p>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Rank: Top 3 BBA/MBA</li>
+                    <li>Accreditation: AICTE Approved</li>
+                    <li>Courses: MBA, PGDM, BBA</li>
+                </ul>
+                <a href="#" class="mt-4 block text-center bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-150 text-sm font-medium">View Details</a>
+            </div>
+
+            <!-- Card 4: Arts & Science College -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border-t-4 border-purple-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl text-purple-600 mr-3">🎨</span>
+                    <h4 class="text-xl font-semibold text-gray-900">Kanpur Liberal Arts University</h4>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Arts, Humanities, and Science</p>
+                <p class="text-lg font-bold text-secondary-green mb-4">₹ 50k / Year</p>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Rank: Excellent Faculty</li>
+                    <li>Accreditation: State University</li>
+                    <li>Courses: BA, BSc, MA, PhD</li>
+                </ul>
+                <a href="#" class="mt-4 block text-center bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-150 text-sm font-medium">View Details</a>
+            </div>
+
+            <!-- Card 5: Engineering College (Tier 2) -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border-t-4 border-red-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl text-red-600 mr-3">⚙️</span>
+                    <h4 class="text-xl font-semibold text-gray-900">Ghaziabad Polytechnic Institute</h4>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Technical College</p>
+                <p class="text-lg font-bold text-secondary-green mb-4">₹ 70k / Year</p>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Rank: Good Placement Record</li>
+                    <li>Affiliation: BTE</li>
+                    <li>Courses: Diploma, B.Tech (Mech, Civil)</li>
+                </ul>
+                <a href="#" class="mt-4 block text-center bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-150 text-sm font-medium">View Details</a>
+            </div>
+
+            <!-- Card 6: Pharmacy College -->
+            <div class="bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border-t-4 border-cyan-500 transform hover:-translate-y-1">
+                <div class="flex items-center mb-3">
+                    <span class="text-3xl text-cyan-600 mr-3">💊</span>
+                    <h4 class="text-xl font-semibold text-gray-900">Agra College of Pharmaceutical Sciences</h4>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Specialized Pharma Institute</p>
+                <p class="text-lg font-bold text-secondary-green mb-4">₹ 120k / Year</p>
+                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                    <li>Rank: Leading D. Pharma</li>
+                    <li>Accreditation: PCI Approved</li>
+                    <li>Courses: D. Pharma, B. Pharma, M. Pharma</li>
+                </ul>
+                <a href="#" class="mt-4 block text-center bg-primary-blue text-white py-2 rounded-lg hover:bg-blue-600 transition duration-150 text-sm font-medium">View Details</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript for the Fee Slider functionality -->
+    <script>
+        const feeSlider = document.getElementById('fee-max');
+        const feeValueDisplay = document.getElementById('fee-value');
+
+        // Initial setup
+        feeValueDisplay.textContent = feeSlider.value + 'k';
+
+        // Update the display when the slider is moved
+        feeSlider.addEventListener('input', function() {
+            feeValueDisplay.textContent = this.value + 'k';
+        });
+    </script>
+</body>
+</html>
+

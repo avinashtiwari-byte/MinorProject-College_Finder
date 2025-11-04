@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Explorer - Indian Colleges Guide</title>
+    <style>
+        /* --- CSS for Professional UI/UX and Responsiveness --- */
+
+        :root {
+            --primary-color: #004d99; /* Deep Blue */
+            --secondary-color: #f0f8ff; /* Lightest Blue/White */
+            --accent-color: #ff7f50; /* Coral/Orange for highlights */
+            --text-color: #333;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 3px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #ccc;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .tab-button:hover {
+            color: var(--accent-color);
+        }
+
+        .tab-button.active {
+            color: white;
+            background-color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            transform: translateY(3px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* College Card Grid */
+        .college-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding-top: 20px;
+        }
+
+        /* College Card Styling */
+        .college-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .college-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* Placeholder for image - REMOVE THIS CLASS WHEN INSERTING ACTUAL IMAGE */
+            background-color: #ccc;
+            text-align: center;
+            line-height: 200px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .college-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .college-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .college-details p {
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-top: auto; /* Push tag to the bottom */
+            align-self: flex-start;
+        }
+
+        .iit-tag { background-color: #ff4500; } /* Orange-Red for IITs */
+        .gov-tag { background-color: #2e8b57; } /* Sea Green for Gov */
+        .pvt-tag { background-color: #4169e1; } /* Royal Blue for Private */
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #e6e6e6;
+            color: #555;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .tabs {
+                justify-content: space-around;
+            }
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            .college-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>College Explorer 🧭</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('iit', this)">Indian Institutes of Technology (IIT)</button>
+            <button class="tab-button" onclick="openTab('government', this)">Top Government Colleges</button>
+            <button class="tab-button" onclick="openTab('private', this)">Top Private Colleges</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="iit" class="tab-content active">
+            <h2>🥇 Leading Indian Institutes of Technology (5/10 Complete)</h2>
+            <div class="college-grid">
+                <div class="college-card">
+                    <img src="" alt="Image of IIT Bombay">
+                    <div class="college-details">
+                        <h3>IIT Bombay</h3>
+                        <p><strong>Location:</strong> Mumbai, Maharashtra</p>
+                        <p><strong>NIRF Rank 2023:</strong> #2 (Engineering)</p>
+                        <p><strong>Key Programs:</strong> Computer Science, Electrical Engineering, Mechanical Engineering.</p>
+                        <span class="tag iit-tag">IIT - Premier Institute</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of IIT Delhi">
+                    <div class="college-details">
+                        <h3>IIT Delhi</h3>
+                        <p><strong>Location:</strong> New Delhi, Delhi</p>
+                        <p><strong>NIRF Rank 2023:</strong> #3 (Engineering)</p>
+                        <p><strong>Key Programs:</strong> Chemical Engineering, Civil Engineering, Biotechnology.</p>
+                        <span class="tag iit-tag">IIT - Premier Institute</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of IIT Madras">
+                    <div class="college-details">
+                        <h3>IIT Madras</h3>
+                        <p><strong>Location:</strong> Chennai, Tamil Nadu</p>
+                        <p><strong>NIRF Rank 2023:</strong> #1 (Overall)</p>
+                        <p><strong>Key Programs:</strong> Aerospace Engineering, Ocean Engineering, Management Studies.</p>
+                        <span class="tag iit-tag">IIT - Premier Institute</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of IIT Kanpur">
+                    <div class="college-details">
+                        <h3>IIT Kanpur</h3>
+                        <p><strong>Location:</strong> Kanpur, UP</p>
+                        <p><strong>Details:</strong> Add program details, NIRF rank, etc. here.</p>
+                        <span class="tag iit-tag">IIT - Premier Institute</span>
+                    </div>
+                </div>
+                 <div class="college-card">
+                    <img src="" alt="Image of IIT Kharagpur">
+                    <div class="college-details">
+                        <h3>IIT Kharagpur</h3>
+                        <p><strong>Location:</strong> Kharagpur, West Bengal</p>
+                        <p><strong>Details:</strong> Add program details, NIRF rank, etc. here.</p>
+                        <span class="tag iit-tag">IIT - Premier Institute</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div id="government" class="tab-content">
+            <h2>🏛️ Top Central/State Government Colleges (5/10 Complete)</h2>
+            <div class="college-grid">
+                <div class="college-card">
+                    <img src="" alt="Image of NIT Trichy">
+                    <div class="college-details">
+                        <h3>NIT Tiruchirappalli</h3>
+                        <p><strong>Location:</strong> Tiruchirappalli, TN</p>
+                        <p><strong>Type:</strong> National Institute of Technology</p>
+                        <p><strong>Key Programs:</strong> Civil, Chemical, Computer Science, Architecture.</p>
+                        <span class="tag gov-tag">Government - NIT</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of IISC Bangalore">
+                    <div class="college-details">
+                        <h3>IISc Bangalore</h3>
+                        <p><strong>Location:</strong> Bangalore, Karnataka</p>
+                        <p><strong>Type:</strong> Research University</p>
+                        <p><strong>Key Programs:</strong> Science, Engineering, Research.</p>
+                        <span class="tag gov-tag">Government - Research</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of Jadavpur University">
+                    <div class="college-details">
+                        <h3>Jadavpur University</h3>
+                        <p><strong>Location:</strong> Kolkata, West Bengal</p>
+                        <p><strong>Type:</strong> State University</p>
+                        <p><strong>Key Programs:</strong> Civil Engineering, Power Engineering, Arts.</p>
+                        <span class="tag gov-tag">Government - State Univ</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of DTU">
+                    <div class="college-details">
+                        <h3>Delhi Technological University (DTU)</h3>
+                        <p><strong>Location:</strong> Delhi</p>
+                        <p><strong>Details:</strong> Add program details, NIRF rank, etc. here.</p>
+                        <span class="tag gov-tag">Government - State Univ</span>
+                    </div>
+                </div>
+                 <div class="college-card">
+                    <img src="" alt="Image of Osmania University">
+                    <div class="college-details">
+                        <h3>Osmania University</h3>
+                        <p><strong>Location:</strong> Hyderabad, Telangana</p>
+                        <p><strong>Details:</strong> Add program details, NIRF rank, etc. here.</p>
+                        <span class="tag gov-tag">Government - State Univ</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div id="private" class="tab-content">
+            <h2>💼 Top Private Colleges & Universities (5/10 Complete)</h2>
+            <div class="college-grid">
+                <div class="college-card">
+                    <img src="" alt="Image of BITS Pilani">
+                    <div class="college-details">
+                        <h3>BITS Pilani</h3>
+                        <p><strong>Location:</strong> Pilani, Goa, Hyderabad</p>
+                        <p><strong>NIRF Rank:</strong> Top Private Institution</p>
+                        <p><strong>Key Programs:</strong> Electronics & Communication, Chemical, Pharmacy.</p>
+                        <span class="tag pvt-tag">Private - Deemed Univ</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of Vellore Institute">
+                    <div class="college-details">
+                        <h3>Vellore Institute of Technology (VIT)</h3>
+                        <p><strong>Location:</strong> Vellore, Chennai</p>
+                        <p><strong>NIRF Rank:</strong> Highly Ranked</p>
+                        <p><strong>Key Programs:</strong> Computer Science, Electrical, Mechanical.</p>
+                        <span class="tag pvt-tag">Private - Deemed Univ</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of Amrita University">
+                    <div class="college-details">
+                        <h3>Amrita Vishwa Vidyapeetham</h3>
+                        <p><strong>Location:</strong> Coimbatore, Amritapuri</p>
+                        <p><strong>Type:</strong> Multi-campus University</p>
+                        <p><strong>Key Programs:</strong> Engineering, Medicine, Management.</p>
+                        <span class="tag pvt-tag">Private - Deemed Univ</span>
+                    </div>
+                </div>
+                <div class="college-card">
+                    <img src="" alt="Image of SRM University">
+                    <div class="college-details">
+                        <h3>SRM Institute of Science and Tech</h3>
+                        <p><strong>Location:</strong> Chennai, Modinagar</p>
+                        <p><strong>Details:</strong> Add program details, NIRF rank, etc. here.</p>
+                        <span class="tag pvt-tag">Private - Deemed Univ</span>
+                    </div>
+                </div>
+                 <div class="college-card">
+                    <img src="" alt="Image of Manipal University">
+                    <div class="college-details">
+                        <h3>Manipal Academy of Higher Ed. (MAHE)</h3>
+                        <p><strong>Location:</strong> Manipal, Udupi</p>
+                        <p><strong>Details:</strong> Add program details, NIRF rank, etc. here.</p>
+                        <span class="tag pvt-tag">Private - Deemed Univ</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 College Explorer | Data provided for informational purposes only.
+    </footer>
+
+    <script>
+        /* --- JAVASCRIPT for Tab Functionality --- */
+
+        function openTab(tabName, elmnt) {
+            // Hide all tab content
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the 'active' class from all tab buttons
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the specific tab content and add 'active' class to the button
+            document.getElementById(tabName).style.display = "block";
+            elmnt.className += " active";
+        }
+
+        // Initialize: Open the default (IIT) tab on page load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Ensure the first tab content is shown and first button is active
+            openTab('iit', document.querySelector('.tab-button'));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1419 @@
+/* ------------------------------------ ANIMATED GRADIENT (Added from first request) -------------------------------
+
+.animated-gradient {
+  background: linear-gradient(90deg, #2e3192 0%, #1bffff 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s normal infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 10%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 10%;
+  }
+}
+
+/* ------------------------------------ UNIVERSAL STYLES ------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* ------------------------------------ CORE LAYOUT (Responsive) ------------------------------- */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  /* Applying the animated gradient properties */
+  background: linear-gradient(90deg, #2e3192 0%, #1bffff 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s normal infinite;
+}
+
+.parent {
+  /* Responsive sizing adjustments */
+  width: 95%; /* Make it nearly full-width on mobile */
+  max-width: 1200px; /* Limit max size on desktops */
+  height: 90%; /* Keeping 90% height for large screens */
+  min-height: 400px; /* Ensure content is visible */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #230845;
+  box-shadow: 5px 5px 20px black;
+  color: #ffffff;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  overflow-y: auto; /* Allow vertical scrolling if content is long */
+}
+
+/* ------------------------------------ NAVIGATION (Responsive) ------------------------------- */
+
+.parent nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px; /* Adjusted padding */
+  height: auto;
+}
+
+nav h1 {
+  font-size: 25px; /* Adjusted font size */
+  font-weight: 600;
+  margin-left: 0; /* Adjusted margin */
+  color: #014728;
+  position: relative;
+}
+
+nav h1::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgb(28, 9, 114), rgb(214, 214, 255));
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  text-decoration: none;
+  padding: 5px 10px; /* Adjusted padding */
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px; /* Adjusted font size */
+  color: white;
+  transition: 0.5s ease;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+ul li #sub {
+  text-decoration: none;
+  color: white;
+  background-image: linear-gradient(90deg, #c04848, #480048, #c04848);
+  margin: 5px; /* Adjusted margin */
+  padding: 8px 15px; /* Adjusted padding */
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+ul li #sub:hover {
+  background-position: right center;
+}
+
+/* ------------------------------------ MAIN CONTENT (Responsive) ------------------------------- */
+
+.parent .main_content {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  min-height: 85%;
+}
+
+.main_content .left {
+  width: 50%;
+  height: auto;
+  padding: 20px 40px; /* Adjusted padding */
+}
+
+.left h3 {
+  font-weight: 600;
+  font-size: 18px; /* Adjusted font size */
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.left h1 {
+  font-size: 35px; /* Adjusted font size */
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 40px; /* Adjusted line height */
+  text-transform: uppercase;
+}
+
+.left h1 span {
+  color: yellow;
+}
+
+.left p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.left h2 {
+  text-decoration: underline;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.left button {
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  letter-spacing: 1px;
+  margin-top: 20px; /* Adjusted margin */
+  background-color: #033677;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.left button:hover {
+  background-color: rgb(42, 0, 93);
+  box-shadow: 0 0 10px white;
+}
+
+.main_content .right {
+  width: 50%; /* Adjusted width */
+  height: 100%;
+  padding-left: 20px; /* Adjusted padding */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right img {
+  width: 100%;
+  max-width: 380px;
+  transform: translateY(-30px);
+  filter: saturate(120%);
+}
+
+.gradient {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 55%;
+  left: 60%;
+  border-radius: 50%;
+  background-color: rgb(158, 109, 255);
+  z-index: -1;
+  filter: blur(50px);
+  box-shadow: 0 0 200px rgb(157, 108, 255), 0 0 150px purple, 0 0 100px rgb(204, 0, 255);
+}
+
+/* ------------------------------------ CORE MEDIA QUERIES ------------------------------- */
+
+/* Tablet and smaller screens (Max Width 768px) */
+@media (max-width: 768px) {
+  .parent {
+    width: 95%;
+    height: auto;
+    min-height: 95vh;
+  }
+
+  /* NAV: Stack menu items vertically */
+  .parent nav {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  nav h1 {
+    margin-bottom: 15px;
+  }
+
+  nav h1::before {
+    display: none;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  ul li a,
+  ul li #sub {
+    font-size: 10px;
+  }
+
+  /* MAIN CONTENT: Stack the left and right columns vertically */
+  .parent .main_content {
+    flex-direction: column;
+  }
+
+  .main_content .left {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .left h1 {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  .main_content .right {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .right img {
+    width: 80%;
+    max-width: 250px;
+    transform: translateY(0);
+  }
+
+  /* Hide the decorative gradient element on small screens */
+  .gradient {
+    display: none;
+  }
+}
+
+/* Mobile Screens (Max Width 480px) */
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 20px;
+  }
+
+  .left h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .left h3 {
+    font-size: 16px;
+  }
+
+  .left p {
+    font-size: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    margin: 5px 0;
+  }
+}
+
+/* ------------------------------------ card collage (Original Styles) ------------------------------- */
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* -------------------card- scroll (Original Styles) ------------------ */
+
+.slider {
+  position: relative;
+  width: 60%;
+  overflow: hidden;
+}
+
+.images {
+  display: flex;
+  width: 100%;
+}
+
+.images img {
+  height: 400px;
+  width: 100%;
+  transition: all 0.15s ease;
+}
+
+.images input {
+  display: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.dots label {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: solid #fff 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin: 5px;
+}
+
+.dots label:hover {
+  background: #fff;
+}
+
+#img1:checked~.m1 {
+  margin-left: 0;
+}
+
+#img2:checked~.m2 {
+  margin-left: -100%;
+}
+
+#img3:checked~.m3 {
+  margin-left: -200%;
+}
+
+#img4:checked~.m4 {
+  margin-left: -300%;
+}
+
+.ctr-accordion {
+  max-width: 1400px;
+  height: 720px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-around;
+  gap: 20px;
+  overflow: hidden;
+  margin: 150px auto;
+}
+
+.tab {
+  position: relative;
+  width: 20%;
+  height: inherit;
+  padding: 20px;
+  background: rgb(150, 150, 150);
+  cursor: pointer;
+  transition: width .5s ease;
+  border-radius: 25px;
+}
+
+.tab img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  border-radius: 25px;
+}
+
+.tab:hover img {
+  opacity: 0.6;
+}
+
+.tab:hover {
+  width: 80%;
+}
+
+/*
+-----------------------form-fill (Original Styles)---------------------------
+*/
+
+/* General Body and Container Styling */
+#form {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f9;
+  /* Light background for the page */
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.college-search-container {
+  background-color: #ffffff;
+  /* White background for the form area */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+  /* Limits the form width on large screens */
+}
+
+h2 {
+  color: #007bff;
+  /* Primary blue color for the heading */
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 15px;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input, Select, and Range Styling */
+.form-control,
+.range-slider {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-sizing: border-box;
+  /* Includes padding and border in the element's total width and height */
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Radio Button and Checkbox Styling */
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+  margin-right: 5px;
+  /* Basic styling for better alignment */
+  transform: scale(1.1);
+}
+
+.form-group label[for^="type-"],
+.form-group label[for^="feature-"] {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+/* Range Slider Value Display */
+#fee-value {
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: bold;
+  color: #28a745;
+  /* Green color for emphasis */
+}
+
+/* Button Styling */
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  /* Blue for the main action */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  /* Grey for the secondary action (Clear) */
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Styling for the horizontal rule */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  margin: 30px 0;
+}
+
+/* ------------------------6 best collage (Original Styles)---------------------------- */
+
+:root {
+  --primary-blue: #1e40af;
+  /* equivalent to primary-blue */
+  --secondary-green: #059669;
+  /* equivalent to secondary-green */
+  --yellow-500: #f59e0b;
+  --purple-500: #8b5cf0;
+  --red-500: #ef4444;
+  --cyan-500: #06b6d4;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-500: #6b7280;
+  --white: #ffffff;
+}
+
+/* 2. Base Typography */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* 3. Main Container Styling (Equivalent to w-full max-w-5xl px-4) */
+#results-section {
+  width: 100%;
+  max-width: 80rem;
+  /* Adjusted for max-w-5xl equivalence */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 4. Heading Style */
+#results-section h3 {
+  text-align: center;
+  font-size: 1.875rem;
+  /* 3xl */
+  font-weight: 700;
+  /* bold */
+  color: var(--gray-800);
+  margin-bottom: 2.5rem;
+  /* mb-10 */
+  padding-bottom: 1rem;
+  /* pb-4 */
+  border-bottom: 4px solid rgba(5, 150, 105, 0.3);
+  /* border-b-4 border-secondary-green/50 */
+}
+
+/* 5. Card Wrapper (Collage) */
+#card-collage-wrapper {
+  /* No custom styles here, just the container for the grid */
+}
+
+/* 6. Grid Layout (Responsive styles handled by media queries if not using Tailwind) */
+/* For a pure CSS version, you would replace the 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+   with complex media queries. The current Tailwind classes are a much more concise way to do this. 
+   We will keep it as simple flex/grid fallback here. */
+.grid {
+  display: grid;
+  gap: 2rem;
+  /* gap-8 */
+  /* Default: 1 column on small screens */
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  /* md: breakpoint */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* md:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* lg: breakpoint */
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* lg:grid-cols-3 */
+  }
+}
+
+
+/* 7. Individual Card Styles */
+.grid>div {
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  /* rounded-xl */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* shadow-xl */
+  padding: 1.5rem;
+  /* p-6 */
+  transition: all 300ms ease;
+  /* transition duration-300 */
+  border-top-width: 4px;
+  /* border-t-4 */
+}
+
+/* Hover effects (Equivalent to hover:shadow-2xl and transform hover:-translate-y-1) */
+.grid>div:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+}
+
+/* Specific Card Border Colors (Tailwind is more efficient for this) */
+.grid>div:nth-child(1) {
+  border-color: var(--primary-blue);
+}
+
+/* Card 1 */
+.grid>div:nth-child(2) {
+  border-color: var(--secondary-green);
+}
+
+/* Card 2 */
+.grid>div:nth-child(3) {
+  border-color: var(--yellow-500);
+}
+
+/* Card 3 */
+.grid>div:nth-child(4) {
+  border-color: var(--purple-500);
+}
+
+/* Card 4 */
+.grid>div:nth-child(5) {
+  border-color: var(--red-500);
+}
+
+/* Card 5 */
+.grid>div:nth-child(6) {
+  border-color: var(--cyan-500);
+}
+
+/* Card Button Styles (Equivalent to bg-primary-blue text-white py-2 rounded-lg...) */
+.grid a.block {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 150ms ease;
+  font-size: 0.875rem;
+  /* text-sm */
+  font-weight: 500;
+}
+
+.grid a.block:hover {
+  background-color: #1d4ed8;
+  /* A slightly darker blue for hover */
+}
+
+/* ---------------------------------map (Original Styles)---------------------------- */
+
+/* Add to your existing styles.css */
+
+/* Map Container Styling */
+.college-map-container {
+  background-color: #f0f0f5;
+  /* Slightly darker background to separate it from the form */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 700px;
+  margin-top: 30px;
+  /* Space between the search form and the map */
+}
+
+.college-map-container h3 {
+  color: #495057;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Styling for the div that holds the iframe */
+#up-map-location {
+  /* Ensures the map is responsive */
+  overflow: hidden;
+  position: relative;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio (9/16 * 100) */
+  height: 0;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+}
+
+/* Make the Iframe fill its container */
+#up-map-location iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 15px;
+}
+
+/* -------------------------------image scrolle (Original Styles)------------------------ */
+
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+/* NOTE: The class name '.container' here is overridden by your main layout .container. If this is a different HTML element, you may need to rename this class for it to work. */
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  /* NOTE: The class name '.container' here is overridden by your main layout .container. */
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1120px) {
+  /* NOTE: The class name '.container' here is overridden by your main layout .container. */
+  .container {
+    height: 100vh;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card__img {
+    width: 348px;
+  }
+
+  .card__data {
+    width: 316px;
+    padding-inline: 2.5rem;
+  }
+}
+
+/* -----------------------footer (Original Styles)-------------------------------- */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  background-color: #2d2e33;
+  padding: 60px 10%;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer-col {
+  width: 25%;
+}
+
+.footer-col h4 {
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 22px;
+  color: #f1bc0d;
+  text-transform: capitalize;
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: #27c0ac;
+  height: 2px;
+  width: 40px;
+}
+
+ul li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+ul li a {
+  display: block;
+  font-size: 19px;
+  text-transform: capitalize;
+  color: #bdb6b6;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+ul li a:hover {
+  color: white;
+  padding-left: 2px;
+}
+
+.links a {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  color: white;
+  background-color: rgba(40, 130, 214, 0.8);
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.links a:hover {
+  color: #4d4f55;
+  background-color: white;
+}
+
+@media(max-width: 740px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .footer-col h4::before {
+    all: unset;
+  }
+}
+
+@media(max-width: 555px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------hr (Original Styles)----------- */
+
+
+hr {
+  border: 10px solid black;
+}
+
+/* --- New Global Responsive Classes --- */
+
+/* Adds consistent horizontal padding to all main sections for responsiveness */
+.section-padding {
+    padding: 40px 5%; /* 40px top/bottom, 5% left/right */
+    max-width: 1400px; /* Max width for centered content */
+    margin: 0 auto;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2em;
+    color: #230845; /* Matches the dark background color */
+    margin-bottom: 30px;
+}
+
+.section-divider {
+    margin: 40px 0;
+}
+
+/* --- Responsive Layout for Flip Cards (Section 2) --- */
+
+.card-grid-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    gap: 20px;
+    justify-content: center; /* Centers the cards horizontally */
+}
+
+/* Ensures images inside flip-cards are responsive and fit */
+.flip-card {
+    width: 100%; /* Default to full width on mobile */
+    max-width: 300px; /* Max width to keep them card-sized */
+    height: 300px; /* Fixed height for image area (adjust as needed) */
+}
+
+.card-image-responsive {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the space without distortion */
+    border-radius: 1.5rem; /* Matches the card style */
+}
+
+/* --- Handling Conflicting Container Name (Section 3) --- */
+
+/* Renamed to avoid conflict with main .container */
+.responsive-card-wrapper {
+    /* Ensures this section has inner responsive spacing */
+    margin-inline: 1.5rem;
+    padding-block: 2rem;
+}
+
+/* @media for flip cards to show multiple columns */
+@media (min-width: 600px) {
+    .flip-card {
+        width: calc(50% - 10px); /* Two cards per row on tablets */
+    }
+}
+
+@media (min-width: 900px) {
+    .flip-card {
+        width: calc(25% - 15px); /* Four cards per row on desktops */
+    }
+}
+
+/* --- Form and Map Layout --- */
+
+.form-map-section {
+    display: flex;
+    flex-direction: column; /* Stack vertically by default */
+    align-items: center;
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .form-map-section {
+        flex-direction: row; /* Side-by-side on large screens */
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    
+    .college-search-container, .college-map-container {
+        width: 48%; /* Divide space roughly in half */
+    }
+}
+
+/* --- Header Search Bar Styling --- */
+
+.header-search {
+    flex-grow: 1; /* Allows the search bar to take up available space */
+    max-width: 500px; /* Limits max width on large screens */
+    margin: 0 20px; /* Spacing from the logo and nav links */
+}
+
+.search-form {
+    display: flex;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Creates the Google-like rounded shape */
+    overflow: hidden;
+    background-color: #fff;
+    transition: box-shadow 0.3s;
+}
+
+.search-form:focus-within {
+    box-shadow: 0 1px 6px rgba(32,33,36,.28); /* Google-like shadow on focus */
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    outline: none; /* Removes default focus outline */
+    font-size: 16px;
+    background: transparent;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4285F4; /* Google blue color for the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Responsive Navigation Update --- */
+
+/* You likely already have nav styles, but ensure your existing 'nav' uses Flexbox for alignment */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px; /* Adjust as needed */
+    /* Add any other original nav styles here */
+}
+
+nav ul {
+    display: flex; /* Makes the list horizontal */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+/* --- Mobile Responsiveness --- */
+
+@media (max-width: 992px) {
+    /* Stack the nav elements vertically on smaller screens */
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Make the search bar full width and centered */
+    .header-search {
+        width: 90%;
+        max-width: 100%;
+        margin: 15px auto;
+        order: -1; /* Puts the search bar at the top on mobile */
+    }
+
+    /* Stack the navigation links horizontally with wrapping */
+    nav ul {
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+}
+
+.card-grid-10-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Spacing between cards */
+    justify-content: center;
+}
+
+.college-card {
+    width: 100%; /* Default: full width on mobile */
+    max-width: 350px; /* Maximum size for a single card */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+}
+
+.college-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    /* Background colors defined below */
+}
+
+/* Specific background colors for visual distinction */
+.bg-iit { background-color: #900C3F; } /* Deep Red/Maroon */
+.bg-aiims { background-color: #2E8B57; } /* Sea Green */
+.bg-iim { background-color: #FFC300; } /* Yellow/Gold */
+.bg-miranda { background-color: #8A2BE2; } /* Blue Violet */
+.bg-jnu { background-color: #154360; } /* Dark Blue */
+.bg-nlsiu { background-color: #D35400; } /* Pumpkin Orange */
+.bg-iisc { background-color: #34495E; } /* Dark Slate */
+.bg-iit-delhi { background-color: #4CAF50; } /* Green */
+.bg-bhu { background-color: #7D3C98; } /* Purple */
+.bg-niper { background-color: #0077B6; } /* Cobalt Blue */
+
+
+.card-header .rank {
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.card-type {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.card-details {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.card-details li {
+    padding-left: 0;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.card-details li:last-child {
+    border-bottom: none;
+}
+
+.btn-detail {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #4285F4; /* Primary action color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-detail:hover {
+    background-color: #3367D6;
+}
+
+
+/* --- Responsive Breakpoints for the 10-Card Grid --- */
+
+/* Tablet View (2 columns) */
+@media (min-width: 650px) {
+    .college-card {
+        width: calc(50% - 13px); /* 2 cards per row with gap */
+    }
+}
+
+/* Desktop View (3 columns) */
+@media (min-width: 1050px) {
+    .college-card {
+        width: calc(33.333% - 17px); /* 3 cards per row with gap */
+    }
+}
+ */

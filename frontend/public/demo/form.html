@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="form.css" rel="stylesheet">
+</head>
+<body>
+
+<section class="form-container">
+    <h2>Enter Your Details to Find Colleges</h2>
+
+    <form id="collegeForm">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+
+      <div>
+        <label for="email">Email / Phone</label>
+        <input type="text" id="email" placeholder="Enter your contact info" required />
+      </div>
+
+      <div>
+        <label for="class10">10th Marks (%)</label>
+        <input type="number" id="class10" placeholder="e.g. 85" required />
+      </div>
+
+      <div>
+        <label for="class12">12th Marks (%)</label>
+        <input type="number" id="class12" placeholder="e.g. 90" required />
+      </div>
+
+      <div>
+        <label for="exam">Entrance Exam</label>
+        <input type="text" id="exam" placeholder="e.g. JEE, NEET, CUET" />
+      </div>
+
+      <div>
+        <label for="score">Exam Score / Rank</label>
+        <input type="text" id="score" placeholder="e.g. 1234 or 95%" />
+      </div>
+
+      <div>
+        <label for="course">Preferred Course</label>
+        <select id="course" required>
+          <option value="">Select</option>
+          <option value="engineering">Engineering</option>
+          <option value="medical">Medical</option>
+          <option value="commerce">Commerce</option>
+          <option value="arts">Arts</option>
+          <option value="law">Law</option>
+          <option value="management">Management</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="location">Preferred Location</label>
+        <input type="text" id="location" placeholder="City / State" />
+      </div>
+
+      <div>
+        <label for="budget">Budget Range (₹ per year)</label>
+        <input type="text" id="budget" placeholder="e.g. 50,000 – 2,00,000" />
+      </div>
+
+      <div>
+        <label for="collegeType">College Type</label>
+        <select id="collegeType">
+          <option value="">Select</option>
+          <option value="government">Government</option>
+          <option value="private">Private</option>
+          <option value="any">Any</option>
+        </select>
+      </div>
+
+      <div class="full-width">
+        <label for="distance">Distance Preference</label>
+        <select id="distance">
+          <option value="near">Near Home</option>
+          <option value="any">Any Location</option>
+          <option value="specific">Specific State</option>
+        </select>
+      </div>
+
+      <div class="full-width" style="text-align: center; margin-top: 1rem;">
+        <button type="submit">Find My Colleges</button>
+      </div>
+    </form>
+  </section>
+  <script src="form.js"></script>
+  </body>
+</html>

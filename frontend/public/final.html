@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Search Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #4285F4; /* Google Blue */
+            --secondary-color: #0F9D58; /* Google Green */
+            --background-light: #f4f7f6;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .section-padding {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        /* --- 1. Header/Navigation --- */
+        .main-header {
+            background-color: var(--text-light);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            white-space: nowrap; /* Prevent logo from wrapping */
+        }
+
+        .header-search {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 0 20px;
+        }
+
+        .header-search .search-form {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .header-search .search-input {
+            border: none;
+            padding: 10px 15px;
+            flex-grow: 1;
+            outline: none;
+            min-width: 0; /* Important for flex layout on small screens */
+        }
+
+        .header-search .search-button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .header-search .search-button:hover {
+            background-color: #3367D6;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- 2. Hero Section & Form --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x500.png?text=College+Campus') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 80px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .college-search-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .fee-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            color: var(--primary-color);
+            font-size: 0.9em;
+        }
+
+        .fee-value {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0C7A45;
+        }
+        
+        /* --- 3. College Card Styles (Static for this version) --- */
+        
+        .card-grid-10-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px; 
+            justify-content: center;
+        }
+
+        .college-card {
+            width: 100%; 
+            max-width: 350px; 
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .college-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 2.5em;
+            font-weight: bold;
+            background-color: #5A8BD9; /* Default background for static cards */
+        }
+        
+        /* Custom header colors for visual variety (using same classes as JS version) */
+        .bg-iit { background-color: #900C3F; } 
+        .bg-aiims { background-color: #2E8B57; } 
+        .bg-iim { background-color: #FFC300; color: var(--text-dark);} 
+        .bg-miranda { background-color: #8A2BE2; } 
+        .bg-jnu { background-color: #154360; } 
+        .bg-nlsiu { background-color: #D35400; } 
+        .bg-iisc { background-color: #34495E; } 
+        .bg-iit-delhi { background-color: #4CAF50; } 
+        .bg-bhu { background-color: #7D3C98; } 
+        .bg-niper { background-color: #0077B6; } 
+
+        .card-header .rank {
+            font-size: 1.2em;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .card-type {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .card-details {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .card-details li {
+            padding-left: 0;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .card-details li:last-child {
+            border-bottom: none;
+        }
+
+        .btn-detail {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-detail:hover {
+            background-color: #3367D6;
+        }
+
+
+        /* =================================================================== */
+        /* RESPONSIVE MEDIA QUERIES                   */
+        /* =================================================================== */
+
+        /* 4. Mobile Layout (Below 768px) */
+        @media (max-width: 767px) {
+            
+            /* Header adjustments for small screens */
+            .main-header {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            .header-search {
+                order: 3; /* Move search below logo and nav */
+                width: 90%;
+                margin: 15px 0;
+                max-width: none;
+            }
+
+            .nav-links {
+                order: 2;
+                margin-top: 10px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .logo {
+                order: 1;
+            }
+
+            /* Hero adjustments */
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .hero {
+                padding: 50px 10px;
+            }
+
+            .college-search-form {
+                padding: 20px;
+            }
+
+            /* Card Grid is already stacked on mobile due to default width: 100% */
+            .college-card {
+                max-width: 100%;
+            }
+        }
+
+        /* 5. Tablet Layout (768px to 1049px) */
+        @media (min-width: 768px) and (max-width: 1049px) {
+            .header-search {
+                max-width: 300px;
+            }
+            
+            .college-card {
+                /* Two columns */
+                width: calc(50% - 13px);
+            }
+        }
+
+        /* 6. Desktop Layout (1050px and above) */
+        @media (min-width: 1050px) {
+            .college-card {
+                /* Three columns */
+                width: calc(33.333% - 17px);
+            }
+            
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="#" class="logo">EduFind.in</a>
+        <div class="header-search">
+            <form class="search-form">
+                <input type="text" class="search-input" placeholder="Search for college, course, or city..." required>
+                <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <nav class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Rankings</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Find Your Future College Today</h1>
+            <p>Explore thousands of colleges across India based on your needs and budget.</p>
+        </div>
+        
+        <div class="college-search-form">
+            <form>
+                <div class="form-group">
+                    <label for="course-select">Select Course Type</label>
+                    <select id="course-select">
+                        <option value="all">All Courses</option>
+                        <option value="engineering">B.Tech / M.Tech</option>
+                        <option value="medical">MBBS / BDS</option>
+                        <option option="management">MBA / BBA</option>
+                        <option value="arts">Arts & Science</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city-input">Preferred City/State</label>
+                    <input type="text" id="city-input" placeholder="e.g., Bengaluru, Mumbai, UP">
+                </div>
+
+                <div class="form-group">
+                    <label for="fee-max">Max Annual Fee (in '000s ₹)</label>
+                    <input type="range" id="fee-max" min="50" max="500" value="250" step="10">
+                    <div class="fee-display">
+                        <span>₹ 50k</span>
+                        <span class="fee-value">250k</span>
+                        <span>₹ 500k+</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-filter"></i> Search & Filter Colleges
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <section class="section-padding" id="top-indian-colleges">
+        <h2 class="section-heading">🌟 Top Indian Colleges (Example Cards)</h2>
+        
+        <div class="card-grid-10-wrapper" id="static-college-results">
+            
+            <div class="college-card">
+                <div class="card-header bg-iit">
+                    <span class="rank">#1</span>
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">IIT Madras</h4>
+                    <p class="card-type">Engineering/Overall</p>
+                    <p class="card-location">Chennai</p>
+                    <ul class="card-details">
+                        <li>**NIRF Rank:** #1</li>
+                        <li>**Focus:** B.Tech, M.Tech</li>
+                        <li>**Courses:** Highest Ranked Public Tech Uni</li>
+                    </ul>
+                    <a href="#" class="btn-detail">View Details</a>
+                </div>
+            </div>
+
+            <div class="college-card">
+                <div class="card-header bg-aiims">
+                    <span class="rank">#1</span>
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">AIIMS Delhi</h4>
+                    <p class="card-type">Medical</p>
+                    <p class="card-location">New Delhi</p>
+                    <ul class="card-details">
+                        <li>**NIRF Rank:** #1</li>
+                        <li>**Focus:** MBBS, MD</li>
+                        <li>**Courses:** Premier Medical Institute</li>
+                    </ul>
+                    <a href="#" class="btn-detail">View Details</a>
+                </div>
+            </div>
+            
+            <div class="college-card">
+                <div class="card-header bg-iim">
+                    <span class="rank">#1</span>
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">IIM Ahmedabad</h4>
+                    <p class="card-type">Management</p>
+                    <p class="card-location">Ahmedabad</p>
+                    <ul class="card-details">
+                        <li>**NIRF Rank:** #1</li>
+                        <li>**Focus:** PGP (MBA), PGPX</li>
+                        <li>**Courses:** Highest Ranked B-School</li>
+                    </ul>
+                    <a href="#" class="btn-detail">View Details</a>
+                </div>
+            </div>
+            
+            <div class="college-card">
+                <div class="card-header bg-jnu">
+                    <span class="rank">#2</span>
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">JNU</h4>
+                    <p class="card-type">University</p>
+                    <p class="card-location">New Delhi</p>
+                    <ul class="card-details">
+                        <li>**NIRF Rank:** #2</li>
+                        <li>**Focus:** Arts, Science</li>
+                        <li>**Courses:** Top Humanities/Social Science</li>
+                    </ul>
+                    <a href="#" class="btn-detail">View Details</a>
+                </div>
+            </div>
+
+            <div class="college-card">
+                <div class="card-header bg-nlsiu">
+                    <span class="rank">#1</span>
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">NLSIU</h4>
+                    <p class="card-type">Law</p>
+                    <p class="card-location">Bengaluru</p>
+                    <ul class="card-details">
+                        <li>**NIRF Rank:** #1</li>
+                        <li>**Focus:** B.A. LLB, LLM</li>
+                        <li>**Courses:** Top Law University</li>
+                    </ul>
+                    <a href="#" class="btn-detail">View Details</a>
+                </div>
+            </div>
+            
+            <div class="college-card">
+                <div class="card-header bg-iisc">
+                    <span class="rank">#2</span>
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">IISc Bengaluru</h4>
+                    <p class="card-type">Research/Overall</p>
+                    <p class="card-location">Bengaluru</p>
+                    <ul class="card-details">
+                        <li>**NIRF Rank:** #2</li>
+                        <li>**Focus:** M.Tech, Ph.D.</li>
+                        <li>**Courses:** Top Research Institute</li>
+                    </ul>
+                    <a href="#" class="btn-detail">View Details</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>
