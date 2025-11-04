@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Toaster } from 'react-hot-toast';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
@@ -11,6 +10,7 @@ import WishlistPage from './pages/WishlistPage';
 import ChatAssistant from './components/chat/ChatAssistant';
 import { WishlistProvider } from './context/WishlistContext';
 import { SearchProvider } from './context/SearchContext';
+import { ToastProvider } from './components/ui/Toast';
 import './App.css';
 
 // Theme Context
