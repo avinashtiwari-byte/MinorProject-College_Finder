@@ -13,6 +13,7 @@ export const useWishlist = () => {
 
 export const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
+  const toast = useToast();
 
   // Load wishlist from localStorage on mount
   useEffect(() => {
