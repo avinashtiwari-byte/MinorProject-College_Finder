@@ -94,13 +94,15 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <WishlistProvider>
-        <SearchProvider>
-          <Router>
-            <AppContent />
-          </Router>
-        </SearchProvider>
-      </WishlistProvider>
+      <ToastProvider>
+        <WishlistProvider>
+          <SearchProvider>
+            <Router>
+              <AppContent />
+            </Router>
+          </SearchProvider>
+        </WishlistProvider>
+      </ToastProvider>
     </ThemeProvider>
   );
 }
