@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { toast } from 'react-hot-toast';
+import { useToast } from '../components/ui/Toast';
 
 const WishlistContext = createContext();
 
