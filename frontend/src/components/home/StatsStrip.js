@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useInView } from '../../hooks/useIntersectionObserver';
 import {
   GraduationCap,
   TrendingUp,
