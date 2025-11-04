@@ -87,28 +87,6 @@ const AppContent = () => {
       </main>
       <Footer />
       <ChatAssistant />
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: 'rgba(0, 0, 0, 0.8)',
-            color: '#fff',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            backdropFilter: 'blur(10px)',
-          },
-          success: {
-            style: {
-              background: 'rgba(16, 185, 129, 0.9)',
-            },
-          },
-          error: {
-            style: {
-              background: 'rgba(239, 68, 68, 0.9)',
-            },
-          },
-        }}
-      />
     </div>
   );
 };
